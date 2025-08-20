@@ -1,30 +1,33 @@
-const express = require("express");
-const cors = require("cors");
-
-const hotelsRouter = require("./routes/hotels");
-const chatbotRouter = require("./routes/chatbot");
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-app.use("/api/hotels", hotelsRouter);
-app.use("/api/chatbot", chatbotRouter);
-
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
+// app.js
 
 const express = require("express");
 const path = require("path");
+
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, "frontend")));
+// Middleware to parse JSON
+app.use(express.json());
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "index.html"));
+// Example API route
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Hello from SwiftStay backend 🚀" });
 });
 
-const PORT = process.env.PORT || 3000;
+// Serve frontend if it exists
+const frontendPath = path.join(__dirname, "frontend");
+app.use(express.static(frontendPath));
+
+// Fallback: if no API route matches, serve index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontendPath, "index.html"), (err) => {
+    if (err) {
+      res.status(404).send("Frontend not found. Build it first.");
+    }
+  });
+});
+
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`✅ Server running on http://localhost:${PORT}`);
 });
