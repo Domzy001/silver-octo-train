@@ -1,19 +1,12 @@
-const path = require('path');
+const express = require("express");
+const path = require("path");
+const app = express();
 
-// Serve static frontend build
-app.use(express.static(path.join(__dirname, 'frontend/build')));
+app.use(express.static(path.join(__dirname, "frontend")));
 
-// Catch-all route
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/build/index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 
-const path = require('path');
-
-// Serve static frontend build
-app.use(express.static(path.join(__dirname, 'frontend/build')));
-
-// Catch-all route for React Router
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/build/index.html'));
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
