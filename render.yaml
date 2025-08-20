@@ -1,11 +1,19 @@
-# Exported from Render on 2025-08-20T02:17:24Z
 services:
 - type: web
-  name: silver-octo-train/swiftstay
-  runtime: static
+  name: swiftstay
+  runtime: node
   repo: https://github.com/Domzy001/silver-octo-train
-  buildCommand: npm install
-  staticPublishPath: start
-  autoDeployTrigger: commit
   rootDir: backend/
+  buildCommand: npm run build
+  startCommand: npm start
+  autoDeploy: true
+  envVars:
+    - key: PORT
+      value: 10000
+    - key: NODE_ENV
+      value: production
+    - key: JWT_SECRET
+      value: your_super_secret_jwt_key
+    - key: DATABASE_URL
+      value: postgres://user:password@host:5432/dbname
 version: "1"
