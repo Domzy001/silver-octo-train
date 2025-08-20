@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "build": "rm -rf frontend && mkdir -p frontend && if [ -f ../frontend/package.json ]; then cd ../frontend && (npm ci || npm install) && npm run -s build || true; fi && if [ -d ../frontend/dist ]; then cp -r ../frontend/dist/* ./frontend/; elif [ -d ../frontend/build ]; then cp -r ../frontend/build/* ./frontend/; elif [ -d ../start ]; then cp -r ../start/* ./frontend/; elif [ -d ../frontend/public ]; then cp -r ../frontend/public/* ./frontend/; else mkdir -p ./frontend && echo '<!doctype html><title>SwiftStay</title><h1>SwiftStay is running</h1>' > ./frontend/index.html; fi"
+    "build": "rm -rf frontend && mkdir -p frontend && if [ -f ../frontend/package.json ]; then cd ../frontend && npm install && npm run build || true; fi && if [ -d ../frontend/dist ]; then cp -r ../frontend/dist/* ../backend/frontend/; elif [ -d ../frontend/build ]; then cp -r ../frontend/build/* ../backend/frontend/; elif [ -d ../frontend/public ]; then cp -r ../frontend/public/* ../backend/frontend/; else mkdir -p ./frontend && echo '<!doctype html><title>SwiftStay</title><h1>SwiftStay is running</h1>' > ./frontend/index.html; fi"
   },
   "engines": {
     "node": "18.x"
