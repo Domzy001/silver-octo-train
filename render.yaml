@@ -17,3 +17,6 @@ services:
     - key: DATABASE_URL
       value: postgres://user:password@host:5432/dbname
 version: "1"
+envVars:
+  - key: NODE_VERSION
+    value: 18
