@@ -1,11 +1,16 @@
-{ "name": "swiftstay-backend", "version": "1.0.0", "main": "app.js", "scripts": { "start": "node app.js" }, "dependencies": { "express": "^4.18.0", "cors": "^2.8.5", "openai": "^4.34.0" } }{
+{
+  "name": "swiftstay-backend",
+  "version": "1.0.0",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "build": "cd ../frontend && npm install && npm run build && cp -r build ../backend/frontend/"
-  }
-}
-{
+  },
   "engines": {
     "node": "18.x"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+    // add your other dependencies here
   }
 }
