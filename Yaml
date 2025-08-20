@@ -1,0 +1,22 @@
+services:
+  # Backend API (Node/Express)
+  - type: web
+    name: swiftstay-backend
+    runtime: node
+    repo: https://github.com/Domzy001/silver-octo-train
+    rootDir: backend/
+    buildCommand: npm install
+    startCommand: node app.js
+    autoDeploy: true
+
+  # Frontend (Static build)
+  - type: web
+    name: swiftstay-frontend
+    runtime: static
+    repo: https://github.com/Domzy001/silver-octo-train
+    rootDir: frontend/          # <-- change this if your frontend folder is named differently
+    buildCommand: npm install && npm run build
+    staticPublishPath: build    # React/Vue/Angular usually outputs to "build" or "dist"
+    autoDeploy: true
+
+version: "1"
