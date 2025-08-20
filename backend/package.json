@@ -4,3 +4,8 @@
     "build": "cd ../frontend && npm install && npm run build && cp -r build ../backend/frontend/"
   }
 }
+{
+  "engines": {
+    "node": "18.x"
+  }
+}
