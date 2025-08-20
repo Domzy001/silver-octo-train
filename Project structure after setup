@@ -1,0 +1,5 @@
+backend/
+  app.js
+  package.json
+  frontend/
+    index.html
