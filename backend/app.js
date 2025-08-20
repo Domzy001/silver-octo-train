@@ -1,4 +1,4 @@
-// app.js
+G7LmQWm7dJr87f8jgE5BVe// app.js
 
 const express = require("express");
 const path = require("path");
@@ -31,3 +31,19 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
 });
+
+
+const express = require("express");
+const path = require("path");
+const app = express();
+
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
+});
+
+// Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
