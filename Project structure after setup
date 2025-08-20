@@ -1,8 +1,5 @@
-/swiftstay
-   /backend
-      package.json
-      app.js
-   /frontend
-      package.json
-      src/
-      public/
+backend/
+  app.js
+  package.json
+  frontend/
+    index.html
