@@ -4,7 +4,8 @@
   "description": "Backend for SwiftStay Nigeria",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "cd ../frontend && npm install && npm run build && cp -r build ../backend/frontend/"
   },
   "engines": {
     "node": "18.x"
