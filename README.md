@@ -5,9 +5,21 @@ SwiftStay Nigeria is an AI-powered hotel reservation and inventory management pl
 ## Monorepo Structure
 
 ```
-/backend    # Node.js API, hotel onboarding, chatbot, AI integration
-/frontend   # React + TailwindCSS web app (luxury UI, customer dashboard)
-/design     # SVGs, Figma links, design assets
+swiftstay/
+│
+├── backend/                # Node.js + Express API
+│   ├── app.js              # Main server file
+│   ├── package.json        # Backend dependencies & scripts
+│   ├── frontend/           # Built frontend files will land here
+│   └── ...other backend files...
+│
+├── frontend/               # React/Vue/Angular source code
+│   ├── public/             # Static files (index.html, icons, etc.)
+│   ├── src/                # Your React/Vue components
+│   ├── package.json        # Frontend dependencies
+│   └── ...other frontend files...
+│
+└── README.md
 ```
 
 ---
