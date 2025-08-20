@@ -2,7 +2,9 @@
    /backend
       package.json
       app.js
-   /frontend
-      package.json
-      src/
-      public/
+   frontend/
+ ├── package.json
+ ├── src/
+ │    └── index.js
+ └── public/
+      └── index.html
